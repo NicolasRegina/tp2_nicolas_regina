@@ -102,6 +102,12 @@
 <script>
 export default {
   name: 'EditarRecetaView',
+  props: {
+    id: {
+      type: [String, Number],
+      required: false,
+    },
+  },
   data() {
     return {
       receta: null,
@@ -121,7 +127,8 @@ export default {
       var datosGuardados = localStorage.getItem('recetas')
       this.recetas = datosGuardados ? JSON.parse(datosGuardados) : []
 
-      const recetaId = Number(this.$route.params.id)
+      // Preferir prop 'id' si fue pasada por la ruta (props: true), si no usar $route.params
+      const recetaId = Number(this.id || this.$route.params.id)
 
       const recetaAEditar = this.recetas.find((r) => r.id === recetaId)
 

@@ -68,7 +68,7 @@
               icon="mdi-pencil"
               variant="text"
               color="blue"
-              :to="'/editar/' + receta.id"
+              :to="{ name: 'editar', params: { id: receta.id } }"
             ></v-btn>
 
             <v-btn

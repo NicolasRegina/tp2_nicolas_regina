@@ -17,7 +17,8 @@ const router = createRouter({
     {
       path: '/editar/:id',
       name: 'editar',
-      component: () => import('../views/EditarRecetaView.vue')
+      component: () => import('../views/EditarRecetaView.vue'),
+      props: true
     },
     // Página 404
     {
