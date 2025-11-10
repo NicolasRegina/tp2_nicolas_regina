@@ -12,6 +12,16 @@
         </v-col>
 
         <v-col cols="12">
+          <v-text-field
+            v-model="receta.imagen"
+            label="URL de la Imagen (Opcional)"
+            variant="outlined"
+            prepend-inner-icon="mdi-image-search-outline"
+            clearable
+          ></v-text-field>
+        </v-col>
+
+        <v-col cols="12">
           <v-textarea
             v-model="receta.ingredientes"
             label="Ingredientes (separados por coma)"
@@ -77,6 +87,7 @@ export default {
         dificultad: 'facil',
         categoria: 'almuerzo',
         favorita: false,
+        imagen: '',
       },
       errores: {},
       dificultades: ['facil', 'media', 'dificil'],
@@ -117,6 +128,7 @@ export default {
         dificultad: this.receta.dificultad,
         categoria: this.receta.categoria,
         favorita: this.receta.favorita,
+        imagen: this.receta.imagen,
       }
 
       // 3. Agrega la nueva receta al array
@@ -143,6 +155,7 @@ export default {
         dificultad: 'facil',
         categoria: 'almuerzo',
         favorita: false,
+        imagen: '',
       }
       this.errores = {}
     },

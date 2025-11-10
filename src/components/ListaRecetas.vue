@@ -29,10 +29,22 @@
       <v-col v-for="receta in recetasFiltradas" :key="receta.id" cols="12" sm="6" lg="4">
         <v-card :class="{ 'receta-favorita': receta.favorita }" elevation="2">
           <v-img
-            :src="'/recursos/' + (receta.categoria || 'almuerzo') + '.jpg'"
+            :src="
+              receta.imagen
+                ? receta.imagen
+                : '/recursos/' + (receta.categoria || 'almuerzo') + '.jpg'
+            "
             height="200px"
             cover
-          ></v-img>
+          >
+            <template v-slot:error>
+              <v-img
+                :src="'/recursos/' + (receta.categoria || 'almuerzo') + '.jpg'"
+                height="200px"
+                cover
+              ></v-img>
+            </template>
+          </v-img>
 
           <v-card-title>{{ receta.nombre }}</v-card-title>
 

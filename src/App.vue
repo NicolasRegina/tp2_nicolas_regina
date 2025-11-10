@@ -26,6 +26,7 @@ export default {
             dificultad: 'facil',
             categoria: 'almuerzo',
             favorita: true,
+            imagen: '',
           },
           {
             id: 2,
@@ -35,6 +36,7 @@ export default {
             dificultad: 'media',
             categoria: 'almuerzo',
             favorita: false,
+            imagen: '',
           },
           {
             id: 3,
@@ -45,6 +47,7 @@ export default {
             dificultad: 'dificil',
             categoria: 'merienda',
             favorita: false,
+            imagen: '',
           },
           {
             id: 4,
@@ -55,6 +58,7 @@ export default {
             dificultad: 'media',
             categoria: 'cena',
             favorita: true,
+            imagen: '',
           },
         ]
 
