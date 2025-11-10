@@ -17,76 +17,22 @@ import ListaRecetas from '@/components/ListaRecetas.vue'
 export default {
   name: 'RecetasView',
   components: {
-    ListaRecetas, // Registramos el componente
+    ListaRecetas,
   },
   data() {
     return {
       recetas: [],
     }
   },
+
   mounted() {
-    //Init
     this.cargarRecetas()
   },
   methods: {
-    // Método para cargar las recetas desde LocalStorage
     cargarRecetas() {
+      // leemos de LocalStorage.
       var datosGuardados = localStorage.getItem('recetas')
-      this.recetas = datosGuardados
-        ? JSON.parse(datosGuardados)
-        : [
-            // Datos iniciales por si LocalStorage está vacío
-            {
-              id: 1,
-              nombre: 'Milanesas de la Abuela Ilda',
-              ingredientes: 'Carne de nalga, pan rallado, huevo, sal, perejil, ajo',
-              tiempo: 45,
-              dificultad: 'facil',
-              categoria: 'almuerzo',
-              favorita: true,
-            },
-            {
-              id: 2,
-              nombre: 'Empanadas de Carne',
-              ingredientes: 'Tapas Rotiseras, carne picada, cebolla, huevo, aceitunas',
-              tiempo: 60,
-              dificultad: 'media',
-              categoria: 'almuerzo',
-              favorita: false,
-            },
-            {
-              id: 3,
-              nombre: 'Pastafrola de Membrillo',
-              ingredientes:
-                'harina, azúcar, huevo, manteca, dulce de membrillo, ralladura de limón, esencia de vainilla',
-              tiempo: 50,
-              dificultad: 'dificil',
-              categoria: 'merienda',
-              favorita: false,
-            },
-            {
-              id: 4,
-              nombre: 'Pastel de Papas',
-              ingredientes:
-                'Papas, carne picada, cebolla, huevo, leche, manteca, queso rallado, queso fresco',
-              tiempo: 90,
-              dificultad: 'media',
-              categoria: 'cena',
-              favorita: true,
-            },
-          ]
-
-      let necesitaGuardar = false
-      this.recetas.forEach((receta) => {
-        if (!receta.categoria) {
-          receta.categoria = 'almuerzo'
-          necesitaGuardar = true
-        }
-      })
-
-      if (necesitaGuardar) {
-        localStorage.setItem('recetas', JSON.stringify(this.recetas))
-      }
+      this.recetas = datosGuardados ? JSON.parse(datosGuardados) : []
     },
 
     // Método para guardar los cambios en LocalStorage
